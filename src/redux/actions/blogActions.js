@@ -6,3 +6,10 @@ export const getAllBlogs = (blogs) => {
     payload: blogs,
   };
 };
+
+export const postNewBlog = (blog) => {
+  return {
+    type: blogActionTypes.POST_NEW_BLOG,
+    payload: blog,
+  };
+};

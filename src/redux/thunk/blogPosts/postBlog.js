@@ -1,4 +1,6 @@
-const postNewBlog = (blog) => {
+import { postNewBlog } from "../../actions/blogActions";
+
+const postBlog = (blog) => {
   return async (dispatch, getState) => {
     const res = await fetch("http://localhost:6969/api/v1/blogs", {
       method: "POST",
@@ -7,10 +9,12 @@ const postNewBlog = (blog) => {
         "Content-type": "application/json",
       },
     });
-    const data = res.json();
+    const data = await res.json();
 
     if(data.success) {
-        dispatch()
+        dispatch(postNewBlog(data.data))
     }
   };
 };
+
+export default postBlog;

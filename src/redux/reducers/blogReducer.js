@@ -10,6 +10,8 @@ const blogReducer = (state = initialState, action) => {
   switch (type) {
     case blogActionTypes.GET_ALL_BLOGS:
       return { ...state, blogs: payload };
+    case blogActionTypes.POST_NEW_BLOG:
+      return { ...state, blogs: [...state.blogs, payload] };
     default:
       return state;
   }

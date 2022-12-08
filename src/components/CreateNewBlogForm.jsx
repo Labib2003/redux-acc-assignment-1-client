@@ -2,10 +2,11 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CrossIcon from "../icons/CrossIcon";
 import { addTag, removeTag, textInput } from "../redux/actions/formActions";
+import postBlog from "../redux/thunk/blogPosts/postBlog";
 
 const CreateNewBlogForm = () => {
   const dispatch = useDispatch();
-  const tags = useSelector((state) => state.form.tags);
+  const form = useSelector((state) => state.form);
 
   return (
     <form>
@@ -65,7 +66,7 @@ const CreateNewBlogForm = () => {
           <option value="Other">Other</option>
         </select>
         <div className="mt-3 flex gap-1">
-          {tags.map((tag) => (
+          {form.tags.map((tag) => (
             <span className="text-xs font-semibold w-fit p-3 rounded text-slate-600 bg-emerald-200 uppercase flex gap-3">
               {tag}
               <div onClick={() => dispatch(removeTag(tag))}>
@@ -76,8 +77,13 @@ const CreateNewBlogForm = () => {
         </div>
       </div>
       <button
-        className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-base px-8 py-3 rounded shadow-md hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+        disabled={!form.tags.length || !form.title || !form.body}
+        className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-base px-8 py-3 rounded shadow-md hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 disabled:bg-emerald-200"
         type="submit"
+        onClick={(e) => {
+          e.preventDefault();
+          dispatch(postBlog(form));
+        }}
       >
         Post Blog
       </button>

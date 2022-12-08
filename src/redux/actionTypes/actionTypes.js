@@ -6,4 +6,5 @@ export const formActionTypes = {
 
 export const blogActionTypes = {
   GET_ALL_BLOGS: "GET_ALL_BLOGS",
+  POST_NEW_BLOG: "POST_NEW_BLOG",
 };
