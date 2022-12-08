@@ -5,7 +5,7 @@ import { addTag, removeTag, textInput } from "../redux/actions/formActions";
 
 const CreateNewBlogForm = () => {
   const dispatch = useDispatch();
-  const tags = useSelector((state) => state.tags);
+  const tags = useSelector((state) => state.form.tags);
 
   return (
     <form>

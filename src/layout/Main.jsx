@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { Outlet } from "react-router-dom";
+import fetchBlogs from "../redux/thunk/blogPosts/fetchBlogs";
 import Navbar from "./Navbar";
 
 const Main = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchBlogs());
+  }, [dispatch]);
   return (
     <div>
       <Navbar />

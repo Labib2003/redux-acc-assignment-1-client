@@ -3,3 +3,7 @@ export const formActionTypes = {
   ADD_TAG: "ADD_TAG",
   REMOVE_TAG: "REMOVE_TAG",
 };
+
+export const blogActionTypes = {
+  GET_ALL_BLOGS: "GET_ALL_BLOGS",
+};

@@ -1,4 +1,4 @@
-import { formActionTypes } from "../actionTypes";
+import { formActionTypes } from "../actionTypes/actionTypes";
 
 export const textInput = (name, value) => {
   return {
