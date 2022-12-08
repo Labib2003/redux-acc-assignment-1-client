@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# Description: 
+In this task, you will build a simple content management application. The type of content doesn't matter. It could be a technical blog, tutorial, post, or personal blog. A user should be able to post, modify or remove that content. All the content will be displayed on the home page as a card with a short description. A reader can click on the content and read it in detail. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Tech Stack (Required) : 
+- React
+- Redux + React Redux (Old Redux)
+- Redux Thunk
+- Redux Dev Tools
 
-## Available Scripts
+# Tasks:
+## Admin Part
+Admin should be able to post, update and delete content.
 
-In the project directory, you can run:
+## User Part
+### Home Page:
+Users can sort the contents based on date/time.
+There would be 2 options 1. Sort by last upload, 2. Sort by the first upload.
+Each content card should have multiple tags related to that topic, by clicking that tag the content card should rearrange (Get filtered).
 
-### `npm start`
+### Reading history:
+After clicking on each content, a reading history should be generated on the "Reading History" page.
+Previously read content should be on this page, however, if a user clicks on already read content, then that particular content should move to the top of the page. (same content cannot be repeated on this list).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# Note: 
+You do not need to implement user authentication as we have yet to cover this topic.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+All data must be loaded from the server. You can use the Moon-tech server (Modify it if you need.) You have to host the server and connect the live link to your application.
 
-### `npm test`
+You do not need to save the "Reading History" page's data locally or on the server. There is no problem if the data goes away after reloading the page.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+You need to use the specific action names mention below for thunk-actions.
 
-### `npm run build`
+You must integrate Redux Dev Tool. (This is important for cross-checking your assignment.)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Thunk Actions:
+- ADD_CONTENT
+- GET_CONTENT
+- UPDATE_CONTENT
+- DELETE_CONTENT
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Deadline: 
+Saturday 10 december thill 9:59pm
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# What you need to Submit?
+Live link of frontend code and Github repo link.
