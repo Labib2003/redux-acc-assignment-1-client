@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import CreateNewBlogForm from "../components/CreateNewBlogForm";
 import Main from "../layout/Main";
 import AdminDashboard from "../pages/AdminDashboard";
 import Home from "../pages/Home";
@@ -20,6 +21,12 @@ const routes = createBrowserRouter([
       {
         path: "/dashboard",
         element: <AdminDashboard />,
+        children: [
+          {
+            path: "/dashboard/",
+            element: <CreateNewBlogForm />,
+          },
+        ],
       },
     ],
   },
