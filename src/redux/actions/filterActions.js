@@ -5,3 +5,10 @@ export const toggleSort = () => {
     type: filterActionTypes.TOGGLE_SORT,
   };
 };
+
+export const handleTags = (tag) => {
+  return {
+    type: filterActionTypes.HANDLE_TAG,
+    payload: tag,
+  };
+};

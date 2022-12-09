@@ -14,6 +14,17 @@ const filterReducer = (state = initialState, action) => {
         ...state,
         sortByNew: !state.sortByNew,
       };
+    case filterActionTypes.HANDLE_TAG:
+      if (state.tags.includes(payload)) {
+        return {
+          ...state,
+          tags: state.tags.filter((tag) => tag !== payload),
+        };
+      }
+      return {
+        ...state,
+        tags: [...state.tags, payload],
+      };
     default:
       return state;
   }

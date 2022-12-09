@@ -12,6 +12,5 @@ export const blogActionTypes = {
 
 export const filterActionTypes = {
   TOGGLE_SORT: "TOGGLE_SORT",
-  ADD_TAG: "ADD_TAG",
-  REMOVE_TAG: "REMOVE_TAG",
+  HANDLE_TAG: "HANDLE_TAG",
 };

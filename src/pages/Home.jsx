@@ -1,11 +1,11 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import BlogPreviewCard from "../components/BlogPreviewCard";
-import { toggleSort } from "../redux/actions/filterActions";
+import { handleTags, toggleSort } from "../redux/actions/filterActions";
 
 const Home = () => {
   const blogs = useSelector((state) => state.blog.blogs);
-  const { sortByNew } = useSelector((state) => state.filter);
+  const { sortByNew, tags } = useSelector((state) => state.filter);
   const dispatch = useDispatch();
 
   return (
@@ -23,25 +23,42 @@ const Home = () => {
             <option value="old">Oldest first</option>
             <option value="new">Newest first</option>
           </select>
+          <p className="text-lg leading-relaxed text-emerald-800">Filter by:</p>
           <span
-            className={`text-xs leading-[] font-semibold inline-block py-1 px-2 uppercase rounded-full text-emerald-600 last:mr-0 mr-1 cursor-pointer bg-emerald-200`}
+            className={`text-xs leading-[unset] font-semibold inline-block py-1 px-2 uppercase rounded-full text-emerald-600 last:mr-0 mr-1 cursor-pointer ${
+              tags.includes("React") ? "bg-emerald-200" : null
+            }`}
+            onClick={() => dispatch(handleTags("React"))}
           >
             React
           </span>
           <span
-            className={`text-xs leading-[] font-semibold inline-block py-1 px-2 uppercase rounded-full text-emerald-600 last:mr-0 mr-1 cursor-pointer bg-emerald-200`}
+            className={`text-xs leading-[unset] font-semibold inline-block py-1 px-2 uppercase rounded-full text-emerald-600 last:mr-0 mr-1 cursor-pointer ${
+              tags.includes("JavaScript") ? "bg-emerald-200" : null
+            }`}
+            onClick={() => dispatch(handleTags("JavaScript"))}
           >
             JavaScript
           </span>
           <span
-            className={`text-xs leading-[] font-semibold inline-block py-1 px-2 uppercase rounded-full text-emerald-600  last:mr-0 mr-1 cursor-pointer bg-emerald-200`}
+            className={`text-xs leading-[unset] font-semibold inline-block py-1 px-2 uppercase rounded-full text-emerald-600  last:mr-0 mr-1 cursor-pointer ${
+              tags.includes("Other") ? "bg-emerald-200" : null
+            }`}
+            onClick={() => dispatch(handleTags("Other"))}
           >
             Other
           </span>
         </div>
       </div>
-      <div className="grid grid-cols-3 gap-3">
+      <div className="grid grid-cols-4 gap-3">
         {blogs
+          .filter((blog) =>
+            tags.length
+              ? tags.some((tag) => {
+                  return blog.tags.includes(tag);
+                })
+              : blog
+          )
           .sort(
             sortByNew
               ? (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
