@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteBlog, markForDeletion } from "../redux/actions/blogActions";
+import { markForDeletion } from "../redux/actions/blogActions";
 import { toggleModal } from "../redux/actions/uiActions";
 import DELETE_CONTENT from "../redux/thunk/blogPosts/DELETE_CONTENT";
 

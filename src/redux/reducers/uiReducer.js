@@ -6,7 +6,7 @@ const initialState = {
 };
 
 const uiReducer = (state = initialState, action) => {
-  const { type, payload } = action;
+  const { type } = action;
   switch (type) {
     case uiActionTypes.TOGGLE_NAVBAR_OPEN:
       return {
