@@ -8,10 +8,17 @@ export const blogActionTypes = {
   GET_ALL_BLOGS: "GET_ALL_BLOGS",
   POST_NEW_BLOG: "POST_NEW_BLOG",
   EDIT_BLOG: "EDIT_BLOG",
+  MARK_FOR_DELETION: "MARK_FOR_DELETION",
+  DELETE_BLOG: "DELETE_BLOG",
   ADD_TO_HISTORY: "ADD_TO_HISTORY",
 };
 
 export const filterActionTypes = {
   TOGGLE_SORT: "TOGGLE_SORT",
   HANDLE_TAG: "HANDLE_TAG",
+};
+
+export const uiActionTypes = {
+  TOGGLE_NAVBAR_OPEN: "TOGGLE_NAVBAR_OPEN",
+  TOGGLE_MODAL: "TOGGLE_MODAL",
 };

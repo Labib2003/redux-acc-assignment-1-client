@@ -3,6 +3,7 @@ import { blogActionTypes } from "../actionTypes/actionTypes";
 const initialState = {
   blogs: [],
   history: [],
+  idToBeDeleted: "",
 };
 
 const blogReducer = (state = initialState, action) => {
@@ -15,7 +16,20 @@ const blogReducer = (state = initialState, action) => {
     case blogActionTypes.EDIT_BLOG:
       return {
         ...state,
-        blogs: [...state.blogs.filter(blog => blog._id !== payload._id), payload],
+        blogs: [
+          ...state.blogs.filter((blog) => blog._id !== payload._id),
+          payload,
+        ],
+      };
+    case blogActionTypes.MARK_FOR_DELETION:
+      return {
+        ...state,
+        idToBeDeleted: payload,
+      };
+    case blogActionTypes.DELETE_BLOG:
+      return {
+        ...state,
+        blogs: state.blogs.filter((blog) => blog._id !== payload),
       };
     case blogActionTypes.ADD_TO_HISTORY:
       return {

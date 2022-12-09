@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import CrossIcon from "../icons/CrossIcon";
-import { editBlog } from "../redux/actions/blogActions";
 import { addTag, removeTag, textInput } from "../redux/actions/formActions";
 import patchBlog from "../redux/thunk/blogPosts/patchBlog";
 import postBlog from "../redux/thunk/blogPosts/postBlog";
@@ -24,7 +23,7 @@ const BlogForm = () => {
       dispatch(textInput("body", blog.body));
       blog.tags.forEach((tag) => dispatch(addTag(tag)));
     }
-  }, [id]);
+  }, [id, blog, dispatch]);
 
   return (
     <form>

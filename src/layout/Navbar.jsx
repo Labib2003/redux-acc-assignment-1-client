@@ -1,9 +1,13 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import MenuIcon from "../icons/MenuIcon";
+import { toggleNavbarOpen } from "../redux/actions/uiActions";
 
 export default function Navbar({ fixed }) {
-  const [navbarOpen, setNavbarOpen] = useState(false);
+  const navbarOpen = useSelector((state) => state.ui.navbarOpen);
+  const dispatch = useDispatch();
+
   return (
     <>
       <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-emerald-500 mb-3">
@@ -18,7 +22,7 @@ export default function Navbar({ fixed }) {
             <button
               className="text-white cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
               type="button"
-              onClick={() => setNavbarOpen(!navbarOpen)}
+              onClick={() => dispatch(toggleNavbarOpen())}
             >
               <MenuIcon />
             </button>

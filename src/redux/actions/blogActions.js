@@ -18,6 +18,20 @@ export const editBlog = (blog) => {
   return { type: blogActionTypes.EDIT_BLOG, payload: blog };
 };
 
+export const markForDeletion = (id) => {
+  return {
+    type: blogActionTypes.MARK_FOR_DELETION,
+    payload: id,
+  };
+};
+
+export const deleteBlog = (id) => {
+  return {
+    type: blogActionTypes.DELETE_BLOG,
+    payload: id,
+  };
+};
+
 export const addToHistory = (blog) => {
   return { type: blogActionTypes.ADD_TO_HISTORY, payload: blog };
 };

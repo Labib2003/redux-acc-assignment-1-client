@@ -1,8 +1,12 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { markForDeletion } from "../redux/actions/blogActions";
+import { toggleModal } from "../redux/actions/uiActions";
 
 const BlogsTableRow = ({ blog }) => {
   const { title, createdAt } = blog;
+  const dispatch = useDispatch();
 
   return (
     <tr>
@@ -23,6 +27,10 @@ const BlogsTableRow = ({ blog }) => {
         <button
           className="bg-orange-500 text-white active:bg-orange-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
           type="button"
+          onClick={() => {
+            dispatch(toggleModal());
+            dispatch(markForDeletion(blog._id));
+          }}
         >
           Delete
         </button>
