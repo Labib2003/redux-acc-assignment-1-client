@@ -12,20 +12,20 @@ const Blog = () => {
     <div>
       This is blog {id}
       <h5 class="text-2xl font-normal leading-normal mt-0 mb-2 text-pink-800">
-        {blog.title}
+        {blog?.title}
       </h5>
-      {blog.tags.map((tag) => (
+      {blog?.tags.map((tag) => (
         <span class="text-xs font-semibold inline-block py-1 px-2 rounded text-slate-600 bg-emerald-200 uppercase last:mr-0 mr-1">
           {tag}
         </span>
       ))}
       <br />
       <small className="font-normal leading-normal mt-0 mb-4 text-pink-800">
-        Last Updated At: {Date(blog.updatedAt)}
+        Uploaded at: {new Date(blog?.createdAt).toDateString()}
       </small>
       <hr className="border-emerald-500 mb-3" />
       <p className="text-base font-light leading-relaxed mt-0 mb-4 text-pink-800">
-        {blog.body}
+        {blog?.body}
       </p>
     </div>
   );

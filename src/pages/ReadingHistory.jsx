@@ -4,6 +4,7 @@ import BlogPreviewCard from "../components/BlogPreviewCard";
 
 const ReadingHistory = () => {
   const history = useSelector((state) => state.blog.history);
+  
   return (
     <div>
       <h4 className="text-3xl font-normal leading-normal text-emerald-800">

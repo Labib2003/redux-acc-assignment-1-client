@@ -50,7 +50,7 @@ const Home = () => {
           </span>
         </div>
       </div>
-      <div className="grid grid-cols-4 gap-3">
+      <div className="grid grid-cols-3 gap-3">
         {blogs
           .filter((blog) =>
             tags.length

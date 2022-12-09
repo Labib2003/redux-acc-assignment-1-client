@@ -1,3 +1,4 @@
+import { toast } from "react-hot-toast";
 import { postNewBlog } from "../../actions/blogActions";
 
 const postBlog = (blog) => {
@@ -11,8 +12,11 @@ const postBlog = (blog) => {
     });
     const data = await res.json();
 
-    if(data.success) {
-        dispatch(postNewBlog(data.data))
+    if (data.success) {
+      dispatch(postNewBlog(data.data));
+      toast.success("New blog posted successfully.");
+    } else {
+      toast.error(data.message);
     }
   };
 };

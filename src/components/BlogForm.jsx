@@ -1,18 +1,36 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import CrossIcon from "../icons/CrossIcon";
+import { editBlog } from "../redux/actions/blogActions";
 import { addTag, removeTag, textInput } from "../redux/actions/formActions";
+import patchBlog from "../redux/thunk/blogPosts/patchBlog";
 import postBlog from "../redux/thunk/blogPosts/postBlog";
 
-const CreateNewBlogForm = () => {
+const BlogForm = () => {
   const dispatch = useDispatch();
   const form = useSelector((state) => state.form);
+  const { id } = useParams();
+  const blog = useSelector((state) =>
+    state.blog.blogs.find((blog) => blog._id === id)
+  );
+
+  useEffect(() => {
+    if (id) {
+      dispatch(removeTag("React"));
+      dispatch(removeTag("JavaScript"));
+      dispatch(removeTag("Other"));
+      dispatch(textInput("title", blog.title));
+      dispatch(textInput("body", blog.body));
+      blog.tags.forEach((tag) => dispatch(addTag(tag)));
+    }
+  }, [id]);
 
   return (
     <form>
       <legend>
         <h4 className="text-3xl font-normal leading-normal mt-0 mb-2 text-emerald-800">
-          Create a new blog
+          {id ? "Edit blog" : "Create a new blog"}
         </h4>
       </legend>
       <div className="mb-3 pt-0">
@@ -26,6 +44,7 @@ const CreateNewBlogForm = () => {
           id="blog-title"
           name="title"
           placeholder="New blog title"
+          defaultValue={id ? blog.title : ""}
           className="px-3 py-4 placeholder-slate-300 text-slate-600 relative bg-emerald-50 rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full"
           onBlur={(e) => dispatch(textInput(e.target.name, e.target.value))}
         />
@@ -41,6 +60,7 @@ const CreateNewBlogForm = () => {
           id="blog-body"
           name="body"
           placeholder="New blog body"
+          defaultValue={id ? blog.body : ""}
           className="px-3 py-4 placeholder-slate-300 text-slate-600 relative bg-emerald-50 rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full"
           onBlur={(e) => dispatch(textInput(e.target.name, e.target.value))}
         />
@@ -76,19 +96,40 @@ const CreateNewBlogForm = () => {
           ))}
         </div>
       </div>
-      <button
-        disabled={!form.tags.length || !form.title || !form.body}
-        className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-base px-8 py-3 rounded shadow-md hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 disabled:bg-emerald-200"
-        type="submit"
-        onClick={(e) => {
-          e.preventDefault();
-          dispatch(postBlog(form));
-        }}
-      >
-        Post Blog
-      </button>
+      {id ? (
+        <button
+          disabled={!form.tags.length || !form.title || !form.body}
+          className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-base px-8 py-3 rounded shadow-md hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 disabled:bg-emerald-200"
+          type="submit"
+          onClick={(e) => {
+            e.preventDefault();
+            dispatch(
+              patchBlog({
+                ...blog,
+                title: form.title,
+                body: form.body,
+                tags: [...form.tags],
+              })
+            );
+          }}
+        >
+          Submit Edit
+        </button>
+      ) : (
+        <button
+          disabled={!form.tags.length || !form.title || !form.body}
+          className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-base px-8 py-3 rounded shadow-md hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 disabled:bg-emerald-200"
+          type="submit"
+          onClick={(e) => {
+            e.preventDefault();
+            dispatch(postBlog(form));
+          }}
+        >
+          Post Blog
+        </button>
+      )}
     </form>
   );
 };
 
-export default CreateNewBlogForm;
+export default BlogForm;

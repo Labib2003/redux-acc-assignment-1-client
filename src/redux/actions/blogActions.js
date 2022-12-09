@@ -14,6 +14,10 @@ export const postNewBlog = (blog) => {
   };
 };
 
+export const editBlog = (blog) => {
+  return { type: blogActionTypes.EDIT_BLOG, payload: blog };
+};
+
 export const addToHistory = (blog) => {
   return { type: blogActionTypes.ADD_TO_HISTORY, payload: blog };
 };

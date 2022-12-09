@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
-import CreateNewBlogForm from "../components/CreateNewBlogForm";
+import AllBlogsTable from "../components/AllBlogsTable";
+import BlogForm from "../components/BlogForm";
 import Main from "../layout/Main";
 import AdminDashboard from "../pages/AdminDashboard";
 import Blog from "../pages/Blog";
@@ -25,13 +26,21 @@ const routes = createBrowserRouter([
         children: [
           {
             path: "/dashboard/",
-            element: <CreateNewBlogForm />,
+            element: <BlogForm />,
+          },
+          {
+            path: "/dashboard/edit-blogs",
+            element: <AllBlogsTable />,
+          },
+          {
+            path: "/dashboard/edit-blogs/:id",
+            element: <BlogForm />,
           },
         ],
       },
       {
         path: "/:id",
-        element: <Blog />
+        element: <Blog />,
       },
     ],
   },
