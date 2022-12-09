@@ -11,11 +11,11 @@ const Main = () => {
   useEffect(() => {
     dispatch(GET_CONTENT());
   }, [dispatch]);
-  
+
   return (
     <div>
       <Navbar />
-      <div className="w-full lg:w-3/4 mx-auto p-1">
+      <div className="w-full lg:w-3/4 mx-auto p-2">
         <Outlet />
       </div>
       <Toaster />

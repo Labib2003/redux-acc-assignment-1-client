@@ -8,7 +8,7 @@ const AllBlogsTable = () => {
   const modalOpen = useSelector((state) => state.ui.modalOpen);
 
   return (
-    <div className="rounded-md overflow-hidden">
+    <div className="rounded-md overflow-scroll">
       <table className="w-full">
         <thead className="text-left bg-emerald-300">
           <tr>
