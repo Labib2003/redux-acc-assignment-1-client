@@ -4,8 +4,8 @@ import { Link, Outlet } from "react-router-dom";
 const AdminDashboard = () => {
   return (
     <div>
-      <div className="flex">
-        <nav className="w-1/4 border-r border-emerald-100 p-3 flex flex-col gap-1">
+      <div className="flex flex-col lg:flex-row">
+        <nav className="w-full lg:w-1/4 lg:border-r border-emerald-100 p-3 flex flex-col gap-1">
           <h5 className="text-2xl font-normal leading-normal text-emerald-800 px-3">
             Admin Dashboard
           </h5>
@@ -17,7 +17,7 @@ const AdminDashboard = () => {
             <Link to="/dashboard/create-blog">Update/Delete blogs</Link>
           </h6>
         </nav>
-        <section className="w-3/4 p-3">
+        <section className="w-full lg:w-3/4 p-3">
           <Outlet />
         </section>
       </div>

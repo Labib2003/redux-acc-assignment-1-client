@@ -13,3 +13,7 @@ export const postNewBlog = (blog) => {
     payload: blog,
   };
 };
+
+export const addToHistory = (blog) => {
+  return { type: blogActionTypes.ADD_TO_HISTORY, payload: blog };
+};

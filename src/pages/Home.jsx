@@ -8,9 +8,11 @@ const Home = () => {
   return (
     <div>
       This is homepage
-      {blogs.map((blog) => (
-        <BlogPreviewCard blog={blog} />
-      ))}
+      <div className="grid grid-cols-3 gap-3">
+        {blogs.map((blog) => (
+          <BlogPreviewCard blog={blog} />
+        ))}
+      </div>
     </div>
   );
 };

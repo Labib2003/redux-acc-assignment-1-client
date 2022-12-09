@@ -13,7 +13,7 @@ const Main = () => {
   return (
     <div>
       <Navbar />
-      <div className="w-3/4 mx-auto">
+      <div className="w-full lg:w-3/4 mx-auto p-1">
         <Outlet />
       </div>
     </div>

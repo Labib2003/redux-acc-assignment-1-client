@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import CreateNewBlogForm from "../components/CreateNewBlogForm";
 import Main from "../layout/Main";
 import AdminDashboard from "../pages/AdminDashboard";
+import Blog from "../pages/Blog";
 import Home from "../pages/Home";
 import ReadingHistory from "../pages/ReadingHistory";
 
@@ -27,6 +28,10 @@ const routes = createBrowserRouter([
             element: <CreateNewBlogForm />,
           },
         ],
+      },
+      {
+        path: "/:id",
+        element: <Blog />
       },
     ],
   },
