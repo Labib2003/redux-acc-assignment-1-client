@@ -9,3 +9,9 @@ export const blogActionTypes = {
   POST_NEW_BLOG: "POST_NEW_BLOG",
   ADD_TO_HISTORY: "ADD_TO_HISTORY",
 };
+
+export const filterActionTypes = {
+  TOGGLE_SORT: "TOGGLE_SORT",
+  ADD_TAG: "ADD_TAG",
+  REMOVE_TAG: "REMOVE_TAG",
+};
