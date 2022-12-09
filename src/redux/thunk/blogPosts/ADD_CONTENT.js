@@ -1,7 +1,7 @@
 import { toast } from "react-hot-toast";
 import { postNewBlog } from "../../actions/blogActions";
 
-const postBlog = (blog) => {
+const ADD_CONTENT = (blog) => {
   return async (dispatch, getState) => {
     const res = await fetch("http://localhost:6969/api/v1/blogs", {
       method: "POST",
@@ -21,4 +21,4 @@ const postBlog = (blog) => {
   };
 };
 
-export default postBlog;
+export default ADD_CONTENT;

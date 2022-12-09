@@ -1,7 +1,7 @@
 import { toast } from "react-hot-toast";
 import { editBlog } from "../../actions/blogActions";
 
-const patchBlog = (blog) => {
+const UPDATE_CONTENT = (blog) => {
   return async (dispatch, getState) => {
     const response = await fetch(
       `http://localhost:6969/api/v1/blogs/${blog._id}`,
@@ -25,4 +25,4 @@ const patchBlog = (blog) => {
   };
 };
 
-export default patchBlog;
+export default UPDATE_CONTENT;

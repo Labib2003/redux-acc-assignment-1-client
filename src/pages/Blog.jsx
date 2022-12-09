@@ -7,15 +7,15 @@ const Blog = () => {
   const blog = useSelector((state) => state.blog.blogs).find(
     (blog) => blog._id === id
   );
-  
+
   return (
     <div>
       This is blog {id}
-      <h5 class="text-2xl font-normal leading-normal mt-0 mb-2 text-pink-800">
+      <h5 className="text-2xl font-normal leading-normal mt-0 mb-2 text-pink-800">
         {blog?.title}
       </h5>
-      {blog?.tags.map((tag) => (
-        <span class="text-xs font-semibold inline-block py-1 px-2 rounded text-slate-600 bg-emerald-200 uppercase last:mr-0 mr-1">
+      {blog?.tags.map((tag, index) => (
+        <span key={index} className="text-xs font-semibold inline-block py-1 px-2 rounded text-slate-600 bg-emerald-200 uppercase last:mr-0 mr-1">
           {tag}
         </span>
       ))}

@@ -7,12 +7,12 @@ const ReadingHistory = () => {
   
   return (
     <div>
-      <h4 className="text-3xl font-normal leading-normal text-emerald-800">
+      <h4 className="text-3xl font-normal leading-normal text-emerald-800 border-b border-emerald-100 pb-3 mb-5">
         Recently read blogs
       </h4>
       <div className="grid grid-cols-4 gap-3">
         {history.map((blog) => (
-          <BlogPreviewCard blog={blog} />
+          <BlogPreviewCard key={blog._id} blog={blog} />
         ))}
       </div>
     </div>

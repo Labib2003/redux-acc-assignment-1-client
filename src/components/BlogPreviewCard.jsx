@@ -10,11 +10,11 @@ const BlogPreviewCard = ({ blog }) => {
   return (
     <div className="w-auto border border-emerald-500 rounded-md p-3 flex flex-col justify-between">
       <div>
-        <h5 class="text-2xl font-normal leading-normal mt-0 mb-2 text-slate-800">
+        <h5 className="text-2xl font-normal leading-normal mt-0 mb-2 text-slate-800">
           {title.length > 35 ? title.slice(0, 35) + "..." : title}
         </h5>
-        {tags.map((tag) => (
-          <span class="text-xs font-semibold inline-block py-1 px-2 rounded text-slate-600 bg-emerald-200 uppercase last:mr-0 mr-1">
+        {tags.map((tag, index) => (
+          <span key={index} className="text-xs font-semibold inline-block py-1 px-2 rounded text-slate-600 bg-emerald-200 uppercase last:mr-0 mr-1">
             {tag}
           </span>
         ))}

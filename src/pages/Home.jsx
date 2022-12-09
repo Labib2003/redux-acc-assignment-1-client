@@ -10,7 +10,7 @@ const Home = () => {
 
   return (
     <div>
-      <div className="flex justify-between">
+      <div className="flex justify-between mb-5 border-b border-emerald-100 pb-3">
         <h4 className="text-3xl font-normal leading-normal text-emerald-800">
           Welcome to my blog-site
         </h4>
@@ -65,7 +65,7 @@ const Home = () => {
               : (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
           )
           .map((blog) => (
-            <BlogPreviewCard blog={blog} />
+            <BlogPreviewCard key={blog._id} blog={blog} />
           ))}
       </div>
     </div>

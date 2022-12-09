@@ -25,7 +25,7 @@ const AllBlogsTable = () => {
         </thead>
         <tbody className="bg-emerald-100">
           {blogs.map((blog) => (
-            <BlogsTableRow blog={blog} />
+            <BlogsTableRow key={blog._id} blog={blog} />
           ))}
         </tbody>
       </table>

@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import CrossIcon from "../icons/CrossIcon";
 import { addTag, removeTag, textInput } from "../redux/actions/formActions";
-import patchBlog from "../redux/thunk/blogPosts/patchBlog";
-import postBlog from "../redux/thunk/blogPosts/postBlog";
+import UPDATE_CONTENT from "../redux/thunk/blogPosts/UPDATE_CONTENT";
+import ADD_CONTENT from "../redux/thunk/blogPosts/ADD_CONTENT";
 
 const BlogForm = () => {
   const dispatch = useDispatch();
@@ -85,8 +85,8 @@ const BlogForm = () => {
           <option value="Other">Other</option>
         </select>
         <div className="mt-3 flex gap-1">
-          {form.tags.map((tag) => (
-            <span className="text-xs font-semibold w-fit p-3 rounded text-slate-600 bg-emerald-200 uppercase flex gap-3">
+          {form.tags.map((tag, index) => (
+            <span key={index} className="text-xs font-semibold w-fit p-3 rounded text-slate-600 bg-emerald-200 uppercase flex gap-3">
               {tag}
               <div onClick={() => dispatch(removeTag(tag))}>
                 <CrossIcon />
@@ -103,7 +103,7 @@ const BlogForm = () => {
           onClick={(e) => {
             e.preventDefault();
             dispatch(
-              patchBlog({
+              UPDATE_CONTENT({
                 ...blog,
                 title: form.title,
                 body: form.body,
@@ -121,7 +121,7 @@ const BlogForm = () => {
           type="submit"
           onClick={(e) => {
             e.preventDefault();
-            dispatch(postBlog(form));
+            dispatch(ADD_CONTENT(form));
           }}
         >
           Post Blog
