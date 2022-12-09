@@ -4,9 +4,12 @@ const { deleteBlog } = require("../../actions/blogActions");
 
 const DELETE_CONTENT = (id) => {
   return async (dispatch, getState) => {
-    const response = await fetch(`http://localhost:6969/api/v1/blogs/${id}`, {
-      method: "DELETE",
-    });
+    const response = await fetch(
+      `https://content-management-site-using-redux.onrender.com/api/v1/blogs/${id}`,
+      {
+        method: "DELETE",
+      }
+    );
     const data = await response.json();
     console.log(data);
 

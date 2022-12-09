@@ -4,7 +4,7 @@ import { editBlog } from "../../actions/blogActions";
 const UPDATE_CONTENT = (blog) => {
   return async (dispatch, getState) => {
     const response = await fetch(
-      `http://localhost:6969/api/v1/blogs/${blog._id}`,
+      `https://content-management-site-using-redux.onrender.com/api/v1/blogs/${blog._id}`,
       {
         method: "PATCH",
         body: JSON.stringify(blog),
