@@ -5,7 +5,7 @@ const { deleteBlog } = require("../../actions/blogActions");
 const DELETE_CONTENT = (id) => {
   return async (dispatch, getState) => {
     const response = await fetch(
-      `https://content-management-site-using-redux.onrender.com/api/v1/blogs/${id}`,
+      `https://redux-acc-assignment-1-server.vercel.app/api/v1/blogs/${id}`,
       {
         method: "DELETE",
       }

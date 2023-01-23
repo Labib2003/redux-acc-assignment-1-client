@@ -3,7 +3,7 @@ import { getAllBlogs } from "../../actions/blogActions";
 const GET_CONTENT = () => {
   return async (dispatch, getState) => {
     const res = await fetch(
-      "https://content-management-site-using-redux.onrender.com/api/v1/blogs"
+      "https://redux-acc-assignment-1-server.vercel.app/api/v1/blogs"
     );
     const data = await res.json();
 

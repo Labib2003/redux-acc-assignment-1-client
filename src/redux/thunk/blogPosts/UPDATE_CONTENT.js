@@ -4,7 +4,7 @@ import { editBlog } from "../../actions/blogActions";
 const UPDATE_CONTENT = (blog) => {
   return async (dispatch, getState) => {
     const response = await fetch(
-      `https://content-management-site-using-redux.onrender.com/api/v1/blogs/${blog._id}`,
+      `https://redux-acc-assignment-1-server.vercel.app/api/v1/blogs/${blog._id}`,
       {
         method: "PATCH",
         body: JSON.stringify(blog),

@@ -4,7 +4,7 @@ import { postNewBlog } from "../../actions/blogActions";
 const ADD_CONTENT = (blog) => {
   return async (dispatch, getState) => {
     const res = await fetch(
-      "https://content-management-site-using-redux.onrender.com/api/v1/blogs",
+      "https://redux-acc-assignment-1-server.vercel.app/api/v1/blogs",
       {
         method: "POST",
         body: JSON.stringify(blog),
